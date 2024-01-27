@@ -24,7 +24,7 @@ def create_master_files():
         os.makedirs(unsorted_path)
         print(f"Folder unsorted_images created.")
 
-def add_image(score_img):
+def add_image(score_img, angle):
     # Pass filename of file in unsorted_images
 
     # Splits filename into score and suffix e.g. "64" "jpg"
@@ -54,14 +54,14 @@ def add_image(score_img):
     
 
 
-def save_image(score_img, filename, target_dir):
+def save_image(score_img, filename, target_dir, angle):
     old_file_path = os.path.join(unsorted_path, score_img)
     image = Image.open(old_file_path)
+    rotated_image = image.rotate(angle)
     # Save the image to the correct directory with a new filename
-    image.save(os.path.join(target_dir, filename))
+    rotated_image.save(os.path.join(target_dir, filename))
+
     # Remove old file
     os.remove(old_file_path)
-
-
 
     

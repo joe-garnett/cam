@@ -3,6 +3,9 @@ import file_manager
 import time
 import os
 
+def rotate(path):
+
+
 
 
 picam2 = Picamera2()
@@ -25,7 +28,8 @@ while not exit_flag:
         
         picam2.capture_file(filename)
         os.rename(os.path.join(".", filename), os.path.join(".", "unsorted_images", filename))
-        file_manager.add_image(filename)
+        for angle in range(0, 360, 15):
+            file_manager.add_image(filename, angle)
 
 picam2.stop()
 picam2.close()
