@@ -16,6 +16,8 @@ while not exit_flag:
     score = input("Enter combined score: ")
     if score.lower() == "exit":
         exit_flag = True
+    elif score == "dirs":
+        file_manager.create_master_files()
     else:   
         filename = score + '.jpg'
         picam2.capture_file(path.join(".", "unsorted_image", filename))

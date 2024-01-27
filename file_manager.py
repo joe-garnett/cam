@@ -20,6 +20,10 @@ def create_master_files():
         else:
             print(f"Folder '{folder_name}' already exists.")
 
+    if not os.path.exists(unsorted_path):
+        os.makedirs(unsorted_path)
+        print(f"Folder unsorted_images created.")
+
 def add_image(score_img):
     # Pass filename of file in unsorted_images
 
@@ -57,6 +61,7 @@ def save_image(score_img, filename, target_dir):
     image.save(os.path.join(target_dir, filename))
     # Remove old file
     os.remove(old_file_path)
+
 
 
     
