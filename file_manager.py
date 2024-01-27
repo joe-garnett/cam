@@ -49,7 +49,7 @@ def add_image(score_img, angle):
 
     available_ids = possible_ids - ids
     id = min(available_ids)
-    save_image(score_img, (str(id) + '.' + suffix), dir)
+    save_image(score_img, (str(id) + '.' + suffix), dir, angle)
 
     
 
