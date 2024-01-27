@@ -22,7 +22,7 @@ while not exit_flag:
         filename = score + '.jpg'
         
         picam2.capture_file(filename)
-        os.rename(os.path.join(".", filename), os.path.join(".", "unsorted_image", filename))
+        os.rename(os.path.join(".", filename), os.path.join(".", "unsorted_images", filename))
         file_manager.add_image(filename)
 
 picam2.stop()
