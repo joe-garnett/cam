@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 # dir paths
 base_path = os.path.join(".", "data")
@@ -24,7 +24,7 @@ def create_master_files():
         os.makedirs(unsorted_path)
         print(f"Folder unsorted_images created.")
 
-def add_image(score_img, angle):
+def add_image(score_img, angle, brightness_factor):
     # Pass filename of file in unsorted_images
 
     # Splits filename into score and suffix e.g. "64" "jpg"
@@ -49,17 +49,24 @@ def add_image(score_img, angle):
 
     available_ids = possible_ids - ids
     id = min(available_ids)
-    save_image(score_img, (str(id) + '.' + suffix), dir, angle)
+    save_image(score_img, (str(id) + '.' + suffix), dir, angle, brightness_factor)
 
     
 
 
-def save_image(score_img, filename, target_dir, angle):
+def save_image(score_img, filename, target_dir, angle, brightness_factor):
     old_file_path = os.path.join(unsorted_path, score_img)
     image = Image.open(old_file_path)
+
+    # Artificially rotate image
     rotated_image = image.rotate(angle)
+
+    # Artifically change brightness
+    enhancer = ImageEnhance.Brightness(rotated_image)
+    brightened_image = enhancer.enhance(brightness_factor)
+
     # Save the image to the correct directory with a new filename
-    rotated_image.save(os.path.join(target_dir, filename))
+    brightened_image.save(os.path.join(target_dir, filename))
 
     # Remove old file
     if angle == 345:
