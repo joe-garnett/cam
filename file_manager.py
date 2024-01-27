@@ -62,6 +62,7 @@ def save_image(score_img, filename, target_dir, angle):
     rotated_image.save(os.path.join(target_dir, filename))
 
     # Remove old file
-    os.remove(old_file_path)
+    if angle == 345:
+        os.remove(old_file_path)
 
     
