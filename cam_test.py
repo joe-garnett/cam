@@ -20,8 +20,7 @@ while not exit_flag:
         file_manager.create_master_files()
     else:   
         filename = score + '.jpg'
-        picam2.capture_file(os.path.join(".", "unsorted_image", filename))
-
+        
         picam2.capture_file(filename)
         os.rename(os.path.join(".", filename), os.path.join(".", "unsorted_image", filename))
         file_manager.add_image(filename)
