@@ -3,11 +3,6 @@ import file_manager
 import time
 import os
 
-def rotate(path):
-
-
-
-
 picam2 = Picamera2()
 picam2.options["quality"] = 95
 picam2.options["compress_level"] = 0
