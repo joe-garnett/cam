@@ -1,5 +1,5 @@
 from picamera2 import Picamera2, Preview
-from . import file_manager
+import file_manager
 import time
 from os import path
 
