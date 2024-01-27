@@ -69,7 +69,7 @@ def save_image(score_img, filename, target_dir, angle, brightness_factor):
     brightened_image.save(os.path.join(target_dir, filename))
 
     # Remove old file
-    if angle == 345:
+    if angle == 345 and brightness_factor == 1.0:
         os.remove(old_file_path)
 
     
