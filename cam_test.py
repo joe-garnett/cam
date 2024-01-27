@@ -13,7 +13,7 @@ picam2.start()
 exit_flag = False
 
 while not exit_flag: 
-    score = input("Enter combined score: ")
+    score = input("Enter score: ")
     if score.lower() == "exit":
         exit_flag = True
     elif score == "dirs":
